@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sublivan.movie.mapper.MovieMapper">
+    <select id="findAll" resultType="com.sublivan.movie.dto.Movie">
+        SELECT id, title, price FROM movie
+    </select>
+</mapper>
+
