@@ -2,8 +2,34 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.sublivan.movie.mapper.MovieMapper">
-    <select id="findAll" resultType="com.sublivan.movie.dto.Movie">
-        SELECT id, title, price, poster FROM movie
+    <select id="findAll" resultType="Movie">
+        SELECT title, price, poster FROM movie
+    </select>
+
+    <resultMap id="ScreenRoom" type="ScreenRoom">
+        <result column="name" property="name"/>
+        <result column="seats" property="seats"/>
+    </resultMap>
+
+    <resultMap id="Schedule" type="Schedule">
+        <result column="time" property="time"/>
+    </resultMap>
+
+    <resultMap id="Movie" type="Movie">
+        <result column="title" property="title"/>
+        <result column="price" property="price"/>
+        <result column="poster" property="poster"/>
+
+        <collection property="screenRoom" resultMap="ScreenRoom"/>
+        <collection property="schedules" resultMap="Schedule"/>
+    </resultMap>
+
+    <select id="getMovieSchedules"  parameterType = "Movie" resultMap="Movie">
+       select m.title, m.price, sc.time, sr.seats, sr.name
+       from movie m join schedule sc
+       on m.id = sc.movie_id
+       join screenroom sr
+       on sr.id = sc.screenroom_id;
     </select>
 </mapper>
 

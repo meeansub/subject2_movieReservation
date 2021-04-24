@@ -10,4 +10,6 @@ import java.util.List;
 public interface MovieMapper {
 
     public List<Movie> findAll();
+
+    public List<Movie> getMovieSchedules();
 }
