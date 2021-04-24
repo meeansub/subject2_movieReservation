@@ -14,7 +14,7 @@
 <div class = "main-container">
 <h2>영화 예매</h2>
 
-<a href = "/movieList"><span> 영화 예매</span></a>
+<a href = "/movieSchedule"><span> 영화 예매</span></a>
 <a href = "#"><span> 예매 확인</span></a>
 
 </div>
