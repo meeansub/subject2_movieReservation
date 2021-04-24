@@ -15,12 +15,12 @@ public class MovieController {
     @Autowired
     public MovieService movieService;
 
-    @GetMapping("/movie")
+    @GetMapping("/movieList")
     public ModelAndView movieList() {
-        ModelAndView mv = new ModelAndView("movie");
+        ModelAndView mv = new ModelAndView("movieList");
 
-        List<Movie> moveList = movieService.findAll();
-        mv.addObject("movieList", moveList);
+        List<Movie> movieList = movieService.findAll();
+        mv.addObject("movieList", movieList);
 
         return mv;
     }

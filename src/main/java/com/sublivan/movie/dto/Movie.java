@@ -1,13 +1,11 @@
 package com.sublivan.movie.dto;
 
-import java.awt.*;
-
 public class Movie {
 
     private int id;
     private String title;
     private int price;
-//    private Image poster;
+    private String poster;
 
     public int getId() {
         return id;
@@ -33,8 +31,11 @@ public class Movie {
         this.price = price;
     }
 
+    public String getPoster() {
+        return poster;
+    }
 
-//    public Image getPoster() {
-//        return poster;
-//    }
+    public void setPoster(String poster) {
+        this.poster = poster;
+    }
 }

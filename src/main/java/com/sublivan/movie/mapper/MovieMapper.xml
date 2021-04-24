@@ -3,7 +3,7 @@
 
 <mapper namespace="com.sublivan.movie.mapper.MovieMapper">
     <select id="findAll" resultType="com.sublivan.movie.dto.Movie">
-        SELECT id, title, price FROM movie
+        SELECT id, title, price, poster FROM movie
     </select>
 </mapper>
 
