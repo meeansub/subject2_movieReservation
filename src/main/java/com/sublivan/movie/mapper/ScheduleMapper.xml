@@ -15,7 +15,6 @@
 
     <resultMap id="Schedule" type="Schedule">
         <result column="time" property="time"/>
-
         <collection property="screenRoom" resultMap="ScreenRoom"/>
         <collection property="movie" resultMap="Movie"/>
     </resultMap>
