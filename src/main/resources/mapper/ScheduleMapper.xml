@@ -14,16 +14,21 @@
     </resultMap>
 
     <resultMap id="Schedule" type="Schedule">
-        <result column="time" property="time"/>
+        <result column= "scheduleId" property = "id"/>
+        <result column= "time" property="time"/>
+        <result column= "movie_id" property="movieId"/>
+        <result column="screenroom_id" property="screenRoomId"/>
+
         <collection property="screenRoom" resultMap="ScreenRoom"/>
         <collection property="movie" resultMap="Movie"/>
     </resultMap>
 
-    <select id="getSchedules"  parameterType = "Schedule" resultMap="Schedule">
-        select m.title, m.price, sc.time, sr.seats, sr.name
-        from movie m join schedule sc
-        on m.id = sc.movie_id
-        join screenroom sr
-        on sr.id = sc.screenroom_id
+    <select id="getMovieScheduleInfo"  parameterType = "Schedule" resultMap="Schedule">
+       select m.title, m.price, m.poster, sc.id scheduleId, sc.time, sc.movie_id, sc.screenroom_id, sr.seats, sr.name
+       from movie m join schedule sc
+       on m.id = sc.movie_id
+       join screenroom sr
+       on sr.id = sc.screenroom_id
+       where sc.id = #{scheduleId};
     </select>
 </mapper>

@@ -14,8 +14,6 @@
     <resultMap id="Schedule" type="Schedule">
         <result column= "scheduleId" property = "id"/>
         <result column= "time" property="time"/>
-        <result column= "movie_id" property="movieId"/>
-        <result column="screenroom_id" property="screenRoomId"/>
     </resultMap>
 
     <resultMap id="Movie" type="Movie">
