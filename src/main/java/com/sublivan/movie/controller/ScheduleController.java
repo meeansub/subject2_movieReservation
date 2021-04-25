@@ -1,8 +1,8 @@
 package com.sublivan.movie.controller;
 
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
 
-@RestController
+@Controller
 public class ScheduleController {
 
 //    @Autowired
