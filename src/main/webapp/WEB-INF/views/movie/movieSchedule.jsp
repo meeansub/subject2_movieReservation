@@ -10,7 +10,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
-    <link rel="stylesheet" href="css/movie.css"/>
+    <link rel="stylesheet" href="/css/movie.css"/>
     <title>Title</title>
 </head>
 
@@ -39,7 +39,7 @@
                 <div class="row">
                     <span>예약가능시간</span>
                     <c:forEach var="schedule" items="${movieSchedule.schedules}">
-                        <form action="/bookDetail" method="get">
+                        <form action="/book/bookDetail" method="get">
                             <input type="hidden" name="scheduleId" value="${schedule.id}">
                             <button type="submit">${schedule.time}</button>
                         </form>
