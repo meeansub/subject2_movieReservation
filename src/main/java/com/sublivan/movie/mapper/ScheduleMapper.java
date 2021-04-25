@@ -2,11 +2,10 @@ package com.sublivan.movie.mapper;
 
 import com.sublivan.movie.dto.Schedule;
 import org.apache.ibatis.annotations.Mapper;
-
-import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface ScheduleMapper {
 
-    List<Schedule> getSchedules();
+    Schedule getMovieScheduleInfo(@Param("scheduleId") int scheduleId);
 }
