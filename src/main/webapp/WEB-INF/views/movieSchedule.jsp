@@ -10,7 +10,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
-    <link rel="stylesheet" href="css/movieSchedule.css"/>
+    <link rel="stylesheet" href="css/movie.css"/>
     <title>Title</title>
 </head>
 
@@ -26,13 +26,12 @@
                     <img src="/resources/poster/${movieSchedule.title}.jpg" class="poster" alt="movie poster">
                 </div>
                 <div class="row">
-                    <div class="col">
+                    <div class="col" id = "movieTitle" >
                             ${movieSchedule.title}
                     </div>
                 </div>
-
                 <div class="row">
-                    <div class="col">
+                    <div class="col" id = "screenName">
                             ${movieSchedule.screenRoom.name} / 총 좌석 : ${movieSchedule.screenRoom.seats}
                     </div>
                 </div>
