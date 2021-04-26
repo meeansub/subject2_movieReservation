@@ -15,7 +15,7 @@
 <h2>영화 예매</h2>
 
 <a href = "movie/movieSchedule"><span> 영화 예매</span></a>
-<a href = "#"><span> 예매 확인</span></a>
+<a href = "book/bookResult"><span> 예매 확인</span></a>
 
 </div>
 </body>

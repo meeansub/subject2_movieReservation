@@ -10,10 +10,11 @@
     <resultMap id="ScreenRoom" type="ScreenRoom">
         <result column="name" property="name"/>
         <result column="seats" property="seats"/>
+        <result column="seat_matrix" property="seatMatrix"/>
     </resultMap>
 
     <resultMap id="Schedule" type="Schedule">
-        <result column= "scheduleId" property = "id"/>
+        <result column= "scheduleId" property = "scheduleId"/>
         <result column= "time" property="time"/>
         <result column= "movie_id" property="movieId"/>
         <result column="screenroom_id" property="screenRoomId"/>
@@ -23,7 +24,7 @@
     </resultMap>
 
     <select id="getMovieScheduleInfo"  parameterType = "Schedule" resultMap="Schedule">
-       select m.title, m.price, sc.id scheduleId, sc.time, sc.movie_id, sc.screenroom_id, sr.seats, sr.name
+       select m.title, m.price, sc.id scheduleId, sc.time, sc.movie_id, sc.screenroom_id, sr.seats, sr.name, sr.seat_matrix
        from movie m join schedule sc
        on m.id = sc.movie_id
        join screenroom sr

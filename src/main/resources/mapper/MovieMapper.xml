@@ -12,7 +12,7 @@
     </resultMap>
 
     <resultMap id="Schedule" type="Schedule">
-        <result column= "scheduleId" property = "id"/>
+        <result column= "scheduleId" property = "scheduleId"/>
         <result column= "time" property="time"/>
     </resultMap>
 
