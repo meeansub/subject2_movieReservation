@@ -27,12 +27,6 @@
 }
 
 
-.container {
-    position: absolute;
-    line-height: 50px;
-    /*text-align: center;*/
-}
-
 th {
     border: 1px solid lightgrey;
     margin: 0;
@@ -84,4 +78,8 @@ tr>td {
     text-align: center;
     background-color: aliceblue;
     cursor: pointer;
+}
+
+.seat-info {
+    text-align: center;
 }
