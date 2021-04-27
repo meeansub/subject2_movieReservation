@@ -68,6 +68,4 @@ public class BookController {
         mv.addObject("reservationList", reservationList);
         return mv;
     }
-
-
 }

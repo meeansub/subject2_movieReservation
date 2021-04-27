@@ -8,7 +8,7 @@ import java.sql.Timestamp;
 @Data
 public class Schedule {
     private int scheduleId;
-    private Time time;
+    private String time;
     private int movieId;
     private int screenRoomId;
 

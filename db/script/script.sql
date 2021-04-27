@@ -27,7 +27,7 @@ where schedule_id = 1;
 
 
 -- 예매 확인 --
-select r.seat_number seatNumber, r.total_price totalPrice, r.phone_number phoneNumber, r.schedule_id, r.movie_title movieTitle, r.screenroom screenRoom, sc.time
+select r.seat_number, r.total_price, r.phone_number, r.schedule_id, r.movie_title, r.screenroom, sc.time
 from reservation r join schedule sc
 on r.schedule_id = sc.id
-where phone_number = "01027460339";
+where r.phone_number = "01027460339";

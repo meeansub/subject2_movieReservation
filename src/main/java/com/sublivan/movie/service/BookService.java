@@ -11,8 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class BookService {
@@ -38,7 +40,7 @@ public class BookService {
                 .phoneNumber(req.getParameter("phone"))
                 .scheduleId(Integer.parseInt(req.getParameter("scheduleId")))
                 .movieTitle(req.getParameter("movieTitle"))
-                .screenRoom(req.getParameter("screenRoom"))
+                .screenroom(req.getParameter("screenRoom"))
                 .build();
 
 
@@ -50,9 +52,22 @@ public class BookService {
     }
 
     public List<Reservation> findByPhoneReservedList(String phoneNumber) {
-        List<Reservation> reservationList = reservationMapper.findByPhone(phoneNumber);
-        logger.info(reservationList.get(0).getMovieTitle());
-        return reservationMapper.findByPhone(phoneNumber);
+        List<Map<String, Object>> reservationMapperByPhone = reservationMapper.findByPhone(phoneNumber);
+        List<Reservation>  reservedList= new ArrayList<>();
+
+        for (Map<String, Object> map : reservationMapperByPhone) {
+            Reservation reservation = Reservation.builder()
+                    .movieTitle((String)map.get("movieTitle"))
+                    .phoneNumber((String)map.get("phoneNumber"))
+                    .seatNumber((String)map.get("seatNumber"))
+                    .totalPrice((int)map.get("totalPrice"))
+                    .screenroom((String)map.get("screenroom"))
+                    .time(String.valueOf(map.get("reservedTime")))
+                    .build();
+
+            reservedList.add(reservation);
+        }
+        return reservedList;
     }
 
 

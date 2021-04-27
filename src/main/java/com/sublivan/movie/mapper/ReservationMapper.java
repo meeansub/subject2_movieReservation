@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface ReservationMapper {
@@ -12,5 +13,6 @@ public interface ReservationMapper {
 
     public int countReserved(@Param("scheduleId") int scheduleId);
 
-    public List<Reservation> findByPhone(@Param("phoneNumber") String phoneNumber);
+    public List<Map<String, Object>> findByPhone(@Param("phoneNumber") String phoneNumber);
+
 }

@@ -3,8 +3,8 @@
 
 <mapper namespace="com.sublivan.movie.mapper.ReservationMapper">
     <insert id="insertReservation" parameterType="Reservation">
-        insert into reservation(seat_number, total_price, phone_number, schedule_id, movie_title, screenRoom)
-        value(#{seatNumber}, #{totalPrice}, #{phoneNumber}, #{scheduleId}, #{movieTitle}, #{screenRoom});
+        insert into reservation(seat_number, total_price, phone_number, schedule_id, movie_title, screenroom)
+        value(#{seatNumber}, #{totalPrice}, #{phoneNumber}, #{scheduleId}, #{movieTitle}, #{screenroom});
 
     </insert>
 
@@ -12,25 +12,10 @@
         select count(*) from reservation where schedule_id = #{scheduleId}
     </select>
 
-    <resultMap id="Schedule" type="Schedule">
-        <result column= "time" property="time"/>
-    </resultMap>
-
-    <resultMap id="Reservation" type="Reservation">
-        <result column= "seat_number" property = "seatNumber"/>
-        <result column= "total_price" property="totalPrice"/>
-        <result column= "phone_number" property="phoneNumber"/>
-        <result column="schedule_id" property="scheduleId"/>
-        <result column="movie_title" property="movieTitle"/>
-        <result column="screenRoom" property="screenRoom"/>
-
-        <collection property="Schedule" resultMap="Schedule"/>
-    </resultMap>
-
-    <select id = "findByPhone" parameterType="Reservation" resultMap="Reservation">
-        select r.seat_number, r.total_price, r.phone_number, r.schedule_id, r.movie_title, r.screenRoom, sc.time
-        from reservation r join schedule sc
-        on r.schedule_id = sc.id
-        where phone_number = #{phoneNumber};
+    <select id = "findByPhone" resultType="java.util.HashMap">
+        select r.seat_number seatNumber, r.total_price totalPrice, r.phone_number phoneNumber, r.schedule_id scheduleId, r.movie_title movieTitle,
+               r.screenroom screenroom, sc.time reservedTime
+        from reservation r join schedule sc on r.schedule_id = sc.id
+        where r.phone_number = #{phoneNumber}
     </select>
 </mapper>
